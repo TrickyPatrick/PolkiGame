@@ -5,15 +5,15 @@
 -- BEGINNING OF THE SAFE VARIABLE AREA
 --
 
---[[Changing The HP of the Fighter]] 										local HpFighter2 = 100
---[[Changing The HP of the Dragon]]											local HpDragon2 = 100
---[[Changing The HP given by the potion at first use]] 						local PotionHP = 10
---[[Changing the Hp of the fighter required to use potion]] 				local PotionUseHp = 30
+--[[Changing The HP of the Fighter]] local HpFighter2 = 100
+--[[Changing The HP of the Dragon]] local HpDragon2 = 100
+--[[Changing The HP given by the potion at first use]] local PotionHP = 10
+--[[Changing the Hp of the fighter required to use potion]] local PotionUseHp = 30
 --[[Changing the HP taken away from initial potion after each potion used]] local SubstractHP = 2
---[[Adding damages to the Sword for the dragon]] 							local AdditionalDamagesDragonSword = 0
---[[Adding damages to the Sword for the dragon]] 							local AdditionalDamagesFighterSword = 0
---[[Changing damages done by arrows]] 										local DamagesDoneByArrow = 15
---[[Changing Basics damages done by Dragon Charge]] 						local BasicDamagesCharge = 15
+--[[Adding damages to the Sword for the dragon]] local AdditionalDamagesDragonSword = 0
+--[[Adding damages to the Sword for the dragon]] local AdditionalDamagesFighterSword = 0
+--[[Changing damages done by arrows]] local DamagesDoneByArrow = 15
+--[[Changing Basics damages done by Dragon Charge]] local BasicDamagesCharge = 15
 
 --
 -- END OF THE SAFE VARIABLE AREA
@@ -625,12 +625,6 @@ if state == STATECONST+1 then -- dont delete this
 				DD=3	
 			end
 		end	
-		if (RandomAttacks == 2) then
-		DragonFly = true
-		end
-		if (RandomAttacks == 3) then
-			
-		end
 	end
 end
 AddEventHandler("OnKeyboardInput", OnInput)
