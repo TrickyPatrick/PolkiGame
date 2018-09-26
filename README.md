@@ -1,11 +1,11 @@
 # PolkiGame
 
-**PolkiGame is my first  game ever created and also the first game ever created on Trikyta Engine. <br/>**
-Almost all the sprite are created by me,</br>
-All the code and ideas are created by me.</br>
+***PolkiGame is my first  game ever created and also the first game ever created on Trikyta Engine. <br/>***
+*Almost all the sprite are created by me,</br>
+All the code and ideas are created by me.</br>*
 
 
-This is a combat turn per turn opposing a fighter (you) and a dragon. <br/>
+This is a combat turn-Based game opposing a fighter (you) and a dragon. <br/>
 You have 3 choices at eacch beginning of your turn <br/>
 -A Sword<br/>
 -Z Shooting An Arrow<br/>
