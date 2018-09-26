@@ -1,6 +1,9 @@
 # PolkiGame
 
-PolkiGame is my first  game ever created and also the first game ever created on Trikyta Engine. <br/>
+**PolkiGame is my first  game ever created and also the first game ever created on Trikyta Engine. <br/>**
+Almost all the sprite are created by me,</br>
+All the code and ideas are created by me.</br>
+
 
 This is a combat turn per turn opposing a fighter (you) and a dragon. <br/>
 You have 3 choices at eacch beginning of your turn <br/>
@@ -19,3 +22,17 @@ The dragon has one only attack Dragon charge and you have to choose beetwen<br/>
 -Right to dodge<br/>
 
 So as you can notice, the dragon has 1/4 chance to hit you but if he does hit you it will deal 15 to 30 damages to you.<br/>
+
+
+**Current Features:**</br>
+
+-3 choices for player</br>
+-1 attack for MOB</br>
+-Attack Sword Animation</br>
+-Arrow Animation</br>
+-Dragon Charge Animation</br>
+-Potion Animation</br>
+-Deaths Animation</br>
+-Restart</br>
+-Victory, Defeat and Draw Animation</br>
+-HP writter</br>
