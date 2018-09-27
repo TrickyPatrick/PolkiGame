@@ -2,8 +2,7 @@
 
 ***PolkiGame is my first  game ever created and also the first game ever created on Trikyta Engine. <br/>***
 *Almost all the sprite are created by me,</br>
-All the code and ideas are created by me.</br>*
-/!\ Game only working on 1920*1080 at the moment 
+All the code and ideas are created by me.</br>* 
 
 This is a combat turn-Based game opposing a fighter (you) and a dragon. <br/>
 You have 3 choices at eacch beginning of your turn <br/>
@@ -36,3 +35,4 @@ So as you can notice, the dragon has 1/4 chance to hit you but if he does hit yo
 -Restart</br>
 -Victory, Defeat and Draw Animation</br>
 -HP writter</br>
+-Working on All Resolutions !<br>
