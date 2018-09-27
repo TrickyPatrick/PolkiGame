@@ -5,21 +5,21 @@
 -- BEGINNING OF THE SAFE VARIABLE AREA
 --
 
---[[Changing The HP of the Fighter]] local HpFighter2 = 100
---[[Changing The HP of the Dragon]] local HpDragon2 = 100
---[[Changing The HP given by the potion at first use]] local PotionHP = 10
---[[Changing the Hp of the fighter required to use potion]] local PotionUseHp = 30
+--[[Changing The HP of the Fighter]] 										local HpFighter2 = 100
+--[[Changing The HP of the Dragon]]											local HpDragon2 = 100
+--[[Changing The HP given by the potion at first use]] 						local PotionHP = 10
+--[[Changing the Hp of the fighter required to use potion]] 				local PotionUseHp = 30
 --[[Changing the HP taken away from initial potion after each potion used]] local SubstractHP = 2
---[[Adding damages to the Sword for the dragon]] local AdditionalDamagesDragonSword = 0
---[[Adding damages to the Sword for the dragon]] local AdditionalDamagesFighterSword = 0
---[[Changing damages done by arrows]] local DamagesDoneByArrow = 15
---[[Changing Basics damages done by Dragon Charge]] local BasicDamagesCharge = 15
+--[[Adding damages to the Sword for the dragon]] 							local AdditionalDamagesDragonSword = 0
+--[[Adding damages to the Sword for the dragon]] 							local AdditionalDamagesFighterSword = 0
+--[[Changing damages done by arrows]] 										local DamagesDoneByArrow = 15
+--[[Changing Basics damages done by Dragon Charge]] 						local BasicDamagesCharge = 15
+
+--[[IF YOU WANT TO CHANGE RESOLUTION GO TO CONFIG AND CHANGE WINDOW_WIDTH AND WINDOW_HEIGHT]]
 
 --
 -- END OF THE SAFE VARIABLE AREA
 -- IF YOU CHANGE THINGS DOWN (The code itself) I'm not giving any help, don't be frustrated but I have other stuff to do than helping someone who destroyed my code 
-
-
 
 
 
@@ -31,7 +31,7 @@ local lol = 0
 local patate = 0
 local courgette = 1
 local tomate = 0
-local hh
+local BackGround
 local DD
 local ArrowOrNot
 local Victory
@@ -233,46 +233,60 @@ function RandomPostionCrash(x)
 	return x
 end
 
+function ResolutionLargeur(x)
+	local w=x/1920
+	local eye=WINDOW_WIDTH*w
+	return eye
+end
+
+function ResolutionHauteur(x)
+	local w=x/1080
+	local eye=WINDOW_HEIGHT*w
+	return eye
+end
+
 function OnEngineLoad()	
-	hh = CreateSprite("assets/hh.jpg",1080,1920,0,0)
-	Objects[hh] = true
-	Propositions = CreateSprite("assets/Propositions.png", 200,1900,10,25)
+	BackGround = CreateSprite("assets/hh.jpg",WINDOW_HEIGHT,WINDOW_WIDTH,0,0)
+	Objects[BackGround] = true
+	Propositions = CreateSprite("assets/Propositions.png",ResolutionHauteur(200),ResolutionLargeur(1900),ResolutionLargeur(10),ResolutionHauteur(25))
 	Objects[Propositions] = true
 	Objects[PropositionsCrash] = false
-	local XIMAGE1 = 1600
-	local YIMAGE = 600
-	local XIMAGE2 = 1700
-	local XIMAGE11 = 200
-	local XIMAGE22 = 300
-	local YIMAGE11 = 600	
-	Dragon = CreateSprite("assets/Dragon.png", 400, 800, 1150, 650)
+	local XIMAGE1 = ResolutionLargeur(1600)
+	local YIMAGE = ResolutionHauteur(600)
+	local XIMAGE2 = ResolutionLargeur(1700)
+	local XIMAGE11 = ResolutionLargeur(200)
+	local XIMAGE22 = ResolutionLargeur(300)
+	local YIMAGE11 = ResolutionHauteur(600)
+	Dragon = CreateSprite("assets/Dragon.png", ResolutionHauteur(400), ResolutionLargeur(800), ResolutionLargeur(1150), ResolutionHauteur(650))
 	Objects[Dragon] = true
-	BLACK = CreateSprite("assets/NOIR.jpg",100,300,100,YIMAGE11)
-	BLACKK = CreateSprite("assets/NOIRR.jpg",100,300,1500,YIMAGE)
-	n1 = CreateSprite("assets/1.png", 100, 100, 1500, YIMAGE)
-	n0 = CreateSprite("assets/0.png", 100, 100, XIMAGE1, YIMAGE)
-	nn0 = CreateSprite("assets/0.png", 100, 100, XIMAGE2, YIMAGE)
-	n1 = CreateSprite("assets/1.png", 100, 100, 100, YIMAGE11)
-	n0 = CreateSprite("assets/0.png", 100, 100, XIMAGE11, YIMAGE11)
-	nn0 = CreateSprite("assets/0.png", 100, 100, XIMAGE22, YIMAGE11)
-	Personnage = CreateSprite("assets/Personnage.png", 200, 300, 100, 800)
+	BLACK = CreateSprite("assets/NOIR.jpg",ResolutionHauteur(100),ResolutionLargeur(300),ResolutionLargeur(100),YIMAGE11)
+	BLACKK = CreateSprite("assets/NOIRR.jpg",ResolutionHauteur(100),ResolutionLargeur(300),ResolutionLargeur(1500),YIMAGE)
+	n1 = CreateSprite("assets/1.png", ResolutionHauteur(100), ResolutionLargeur(100), ResolutionLargeur(1500), YIMAGE)
+	n0 = CreateSprite("assets/0.png", ResolutionHauteur(100), ResolutionLargeur(100), XIMAGE1, YIMAGE)
+	nn0 = CreateSprite("assets/0.png", ResolutionHauteur(100), ResolutionLargeur(100), XIMAGE2, YIMAGE)
+	n1 = CreateSprite("assets/1.png", ResolutionHauteur(100), ResolutionLargeur(100), ResolutionLargeur(100), YIMAGE11)
+	n0 = CreateSprite("assets/0.png", ResolutionHauteur(100), ResolutionLargeur(100), XIMAGE11, YIMAGE11)
+	nn0 = CreateSprite("assets/0.png", ResolutionHauteur(100), ResolutionLargeur(100), XIMAGE22, YIMAGE11)
+	Personnage = CreateSprite("assets/Personnage.png", ResolutionHauteur(200), ResolutionLargeur(300), ResolutionLargeur(100), ResolutionHauteur(800))
 	Objects[Personnage] = true
 end
 AddEventHandler("OnEngineLoad", OnEngineLoad)
 
+
+
 function OnRender(dt)
 	if (DragonLife == false and Objects[Dragon] == false and FighterLife == true and RestartStop == 0) then
-		Victory = CreateSprite("Assets/Victory.png",1080,1920,0,0)
+		Victory = CreateSprite("Assets/Victory.png",ResolutionHauteur(1080),ResolutionLargeur(1920),0,0)
 		Restart = true
 		RestartStop = 1
 	end
 	if (FighterLife == false and Objects[Personnage] == false and DragonLife == true and RestartStop == 0) then
-		Defeat = CreateSprite("Assets/Defeat.png",1080,1920,0,0)
+		Defeat = CreateSprite("Assets/Defeat.png",ResolutionHauteur(1080),ResolutionLargeur(1920),0,0)
 		Restart = true
 		RestartStop = 1
 	end
 	if (DragonLife == false and Objects[Dragon] == false and Objects[Personnage] == false and FighterLife == false and RestartStop == 0) then
-		Draw = CreateSprite("Assets/Draw.png",1080,1920,0,0)
+		Draw = CreateSprite("Assets/Draw.png",ResolutionHauteur(1080),ResolutionLargeur(1920),0,0)
 		Restart = true
 		RestartStop = 1
 	end
@@ -286,7 +300,7 @@ function DRINKPOTION(dt)
 			LastDeltaTime11 = 0
 			x, y = GetPos(Potion)
 			SetPos(Potion,x-1,y)
-			if ( x < 249) then
+			if ( x < ResolutionLargeur(249)) then
 				DelSprite(Potion)
 				Objects[Potion] = false
 				HpFighter = HpFighter + PotionHP
@@ -308,17 +322,17 @@ function BOWACTION(dt)
 			LastDeltaTime10 = 0
 			x, y = GetPos(Arrow)
 			SetPos(Arrow,x+2,y-2)
-			if (x >= 483) then
+			if (x >= ResolutionLargeur(483)) then
 				LastDeltaTime10 = 0
 				x, y = GetPos(Arrow)
 				SetPos(Arrow,x+2,y+2)
 				rotateSprite(Arrow,390)
-				if (x >= 716) then
+				if (x >= ResolutionLargeur(716)) then
 					LastDeltaTime10 = 0
 					x, y = GetPos(Arrow)
 					SetPos(Arrow,x+1.5,y+4)
 					rotateSprite(Arrow, 430)
-					if (x >= 950) then
+					if (x >= ResolutionLargeur(950)) then
 						DelSprite(Arrow)
 						Objects[Arrow] = false
 						ArrowOrNot = RandomArrowAttack(x)
@@ -346,7 +360,7 @@ function EPEEACTION(dt)
 			x1, y1 = GetPos(Epee)
 			SetPos(Personnage,x+20,y)
 			SetPos(Epee,x1+20,y1)
-			if (x >= 950) then
+			if (x >= ResolutionLargeur(950)) then
 				MoveBack = true
 				EpeeAction=false
 				DelSprite(Epee)
@@ -367,7 +381,7 @@ function MOVEBACKEPEEFIGHTER(dt)
 			LastDeltaTime2 = 0
 			x, y = GetPos(Personnage)
 			SetPos(Personnage,x-20,y)
-			if ( x <= 100) then
+			if ( x <= ResolutionLargeur(100)) then
 				SetPos(Personnage, x, y)
 				MoveBack = false
 			end
@@ -391,7 +405,7 @@ function DODGEANIMATIONETCHARGE(dt)
 			LastDeltaTime8 = 0
 			x, y = GetPos(Dragon)
 			SetPos(Dragon,x-25,y)
-			if ( x < 100) then
+			if ( x < ResolutionLargeur(100)) then
 				GetPos(Dragon, x, y)
 				HpFighter = HpFighter - BasicDamagesCharge - RandomSwordDragon(x)
 				WriteHP(HpDragon, HpFighter)
@@ -402,10 +416,10 @@ function DODGEANIMATIONETCHARGE(dt)
 	end
 	if (AnimationDodge == true and DD == 3) then
 		DD=DD+1
-		Dodge = CreateSprite("assets/Dodgee.png", 200, 1000, 500,500)
-		Dodge1 = CreateSprite("assets/Dodgeee.png", 200, 1000, 500,500)
-		Dodge2 = CreateSprite("assets/Dodgeeee.png", 200, 1000, 500,500)
-		Dodge3 = CreateSprite("assets/Dodgeeeee.png", 200, 1000, 500,500)	
+		Dodge = CreateSprite("assets/Dodgee.png", ResolutionHauteur(200), ResolutionLargeur(1000), ResolutionLargeur(500),ResolutionHauteur(500))
+		Dodge1 = CreateSprite("assets/Dodgeee.png", ResolutionHauteur(200), ResolutionLargeur(1000), ResolutionLargeur(500),ResolutionHauteur(500))
+		Dodge2 = CreateSprite("assets/Dodgeeee.png", ResolutionHauteur(200), ResolutionLargeur(1000), ResolutionLargeur(500),ResolutionHauteur(500))
+		Dodge3 = CreateSprite("assets/Dodgeeeee.png", ResolutionHauteur(200), ResolutionLargeur(1000), ResolutionLargeur(500),ResolutionHauteur(500))	
 		Objects[Dodge]=true
 		Objects[Dodge1]=true
 		Objects[Dodge2]=true
@@ -419,10 +433,10 @@ function DODGEANIMATIONETCHARGE(dt)
 			x2, y2 = GetPos(Dodge1)
 			x3, y3 = GetPos(Dodge2)
 			x4, y4 = GetPos(Dodge3)
-			setSpriteRotationCenter(Dodge, 500, 100)
-			setSpriteRotationCenter(Dodge1, 500, 100)
-			setSpriteRotationCenter(Dodge2, 500, 100)
-			setSpriteRotationCenter(Dodge3, 500, 100)
+			setSpriteRotationCenter(Dodge, ResolutionLargeur(500), ResolutionHauteur(100))
+			setSpriteRotationCenter(Dodge1, ResolutionLargeur(500), ResolutionHauteur(100))
+			setSpriteRotationCenter(Dodge2, ResolutionLargeur(500), ResolutionHauteur(100))
+			setSpriteRotationCenter(Dodge3, ResolutionLargeur(500), ResolutionHauteur(100))
 			SetPos(Dodge,x1+10,y1)
 			SetPos(Dodge1,x2-10,y2)
 			SetPos(Dodge2,x3,y3+10)
@@ -431,7 +445,7 @@ function DODGEANIMATIONETCHARGE(dt)
 			rotateSprite(Dodge1,getSpriteRotation(Dodge1)+ 3)
 			rotateSprite(Dodge2,getSpriteRotation(Dodge2)- 3)
 			rotateSprite(Dodge3,getSpriteRotation(Dodge3)- 3)
-			if ( x1 > 1500 ) then
+			if ( x1 > ResolutionLargeur(1500)) then
 				GetPos(Dodge, x, y)
 				DelSprite(Dodge)
 				DelSprite(Dodge1)
@@ -456,7 +470,7 @@ function DRAGONCHARGEBACK(dt)
 			LastDeltaTime8 = 0
 			x, y = GetPos(Dragon)
 			SetPos(Dragon,x+25,y)
-			if ( x > 1150) then
+			if ( x > ResolutionLargeur(1150)) then
 				GetPos(Dragon, x, y)
 				DragonChargeBack = false
 			end	
@@ -481,12 +495,12 @@ function PROPOSITIONS(dt)
 	end
 	if  (TurnPlayer == false and Objects[PropositionsCrash] == false and patate == courgette and EpeeAction == false and MoveBack == false and DragonCharge == false and DragonChargeBack == false and FighterLife == true and DragonLife == true) then
 		courgette = courgette + 1
-		PropositionsCrash = CreateSprite("assets/PropositionsCrash.png", 200,1900,10,25)
+		PropositionsCrash = CreateSprite("assets/PropositionsCrash.png", ResolutionHauteur(200),ResolutionLargeur(1900),ResolutionLargeur(10),ResolutionHauteur(25))
 		Objects[PropositionsCrash] = true
 	end
 	if  (TurnPlayer == true and Objects[Propositions] == false and patate == courgette and DragonCharge == false and DragonChargeBack == false and MoveBack == false and EpeeAction == false and FighterLife == true and DragonLife == true) then
 		courgette = courgette + 1
-		Propositions = CreateSprite("assets/Propositions.png", 200,1900,10,25)
+		Propositions = CreateSprite("assets/Propositions.png", ResolutionHauteur(200),ResolutionLargeur(1900),ResolutionLargeur(10),ResolutionHauteur(25))
 		Objects[Propositions] = true
 	end
 end
@@ -499,7 +513,7 @@ function FIGHTERDEATH(dt)
 			LastDeltaTime4 = 0
 			x, y = GetPos(Personnage)
 			SetPos(Personnage,x-5,y-5)
-			if ( x <0 and y < 100) then
+			if ( x < 0 and y < ResolutionHauteur(100)) then
 				DelSprite(Personnage)
 				Objects[Personnage] = false
 			end
@@ -515,7 +529,7 @@ function DRAGONDEATH(dt)
 			LastDeltaTime3 = 0
 			x, y = GetPos(Dragon)
 			SetPos(Dragon,x+5,y+5)
-			if ( x > 2000 and y > 2000) then
+			if ( x > ResolutionLargeur(2000) and y > ResolutionHauteur(2000)) then
 				DelSprite(Dragon)
 				Objects[Dragon] = false
 			end
@@ -532,24 +546,24 @@ if state == STATECONST+1 then -- dont delete this
 		KeyPressed[key] = false
 	end
 	if (Restart == true and key == R and state == STATECONST) then
-		hh = CreateSprite("assets/hh.jpg",1080,1920,0,0)
-		Objects[hh] = true
-		local XIMAGE1 = 1600
-		local YIMAGE = 600
-		local XIMAGE2 = 1700
-		local XIMAGE11 = 200
-		local XIMAGE22 = 300
-		local YIMAGE11 = 600	
-		Dragon = CreateSprite("assets/Dragon.png", 400, 800, 1150, 650)
-		BLACK = CreateSprite("assets/NOIR.jpg",100,300,100,YIMAGE11)
-		BLACKK = CreateSprite("assets/NOIRR.jpg",100,300,1500,YIMAGE)
-		n1 = CreateSprite("assets/1.png", 100, 100, 1500, YIMAGE)
-		n0 = CreateSprite("assets/0.png", 100, 100, XIMAGE1, YIMAGE)
-		nn0 = CreateSprite("assets/0.png", 100, 100, XIMAGE2, YIMAGE)
-		n1 = CreateSprite("assets/1.png", 100, 100, 100, YIMAGE11)
-		n0 = CreateSprite("assets/0.png", 100, 100, XIMAGE11, YIMAGE11)
-		nn0 = CreateSprite("assets/0.png", 100, 100, XIMAGE22, YIMAGE11)
-		Personnage = CreateSprite("assets/Personnage.png", 200, 300, 100, 800)
+	BackGround = CreateSprite("assets/hh.jpg",WINDOW_HEIGHT,WINDOW_WIDTH,0,0)
+	local XIMAGE1 = ResolutionLargeur(1600)
+	local YIMAGE = ResolutionHauteur(600)
+	local XIMAGE2 = ResolutionLargeur(1700)
+	local XIMAGE11 = ResolutionLargeur(200)
+	local XIMAGE22 = ResolutionLargeur(300)
+	local YIMAGE11 = ResolutionHauteur(600)
+	Dragon = CreateSprite("assets/Dragon.png", ResolutionHauteur(400), ResolutionLargeur(800), ResolutionLargeur(1150), ResolutionHauteur(650))
+	BLACK = CreateSprite("assets/NOIR.jpg",ResolutionHauteur(100),ResolutionLargeur(300),ResolutionLargeur(100),YIMAGE11)
+	BLACKK = CreateSprite("assets/NOIRR.jpg",ResolutionHauteur(100),ResolutionLargeur(300),ResolutionLargeur(1500),YIMAGE)
+	n1 = CreateSprite("assets/1.png", ResolutionHauteur(100), ResolutionLargeur(100), ResolutionLargeur(1500), YIMAGE)
+	n0 = CreateSprite("assets/0.png", ResolutionHauteur(100), ResolutionLargeur(100), XIMAGE1, YIMAGE)
+	nn0 = CreateSprite("assets/0.png", ResolutionHauteur(100), ResolutionLargeur(100), XIMAGE2, YIMAGE)
+	n1 = CreateSprite("assets/1.png", ResolutionHauteur(100), ResolutionLargeur(100), ResolutionLargeur(100), YIMAGE11)
+	n0 = CreateSprite("assets/0.png", ResolutionHauteur(100), ResolutionLargeur(100), XIMAGE11, YIMAGE11)
+	nn0 = CreateSprite("assets/0.png", ResolutionHauteur(100), ResolutionLargeur(100), XIMAGE22, YIMAGE11)
+	Personnage = CreateSprite("assets/Personnage.png", ResolutionHauteur(200), ResolutionLargeur(300), ResolutionLargeur(100), ResolutionHauteur(800))
+	Objects[Personnage] = true
 		Objects[PropositionsCrash] = false
 		Objects[Propositions] = false
 		HpFighter = HpFighter2
@@ -564,15 +578,15 @@ if state == STATECONST+1 then -- dont delete this
 	end
 	if (TurnPlayer == true and FighterLife == true and DragonLife == true ) then
 				if (key == A and state == STATECONST and DragonChargeBack == false and DragonCharge == false and AnimationDodge == false) then
-					Epee = CreateSprite("assets/sword.png", 400,250,230,620)
+					Epee = CreateSprite("assets/sword.png", ResolutionHauteur(400),ResolutionLargeur(250),ResolutionLargeur(230),ResolutionHauteur(620))
 					lol = lol + 1
 					EpeeAction = true
 					TurnPlayer = false
 				end
 				if (key == Z and state == STATECONST and DragonChargeBack == false and DragonCharge == false and AnimationDodge == false) then
-					Bow = CreateSprite("assets/Bow2.png", 250,300,170,730)
+					Bow = CreateSprite("assets/Bow2.png", ResolutionHauteur(250),ResolutionLargeur(300),ResolutionLargeur(170),ResolutionHauteur(730))
 					rotateSprite(Bow, 390)
-					Arrow = CreateSprite("assets/Arrow.png",250,250,250,740)
+					Arrow = CreateSprite("assets/Arrow.png",ResolutionHauteur(250),ResolutionLargeur(250),ResolutionLargeur(250),ResolutionHauteur(740))
 					Objects[Bow] = true
 					Objects[Arrow] = true
 					lol = lol + 1
@@ -581,7 +595,7 @@ if state == STATECONST+1 then -- dont delete this
 				end
 				if (key == E and state == STATECONST and DragonChargeBack == false and DragonCharge == false and AnimationDodge == false and HpFighter < PotionUseHp and FighterLife == true) then
 					DrinkPotion = true
-					Potion = CreateSprite("assets/Potion.png", 150,150,700,780)
+					Potion = CreateSprite("assets/Potion.png", ResolutionHauteur(150),ResolutionLargeur(150),ResolutionLargeur(700),ResolutionHauteur(780))
 					Objects[Potion] = true
 					TurnPlayer = false
 					lol = lol + 1
@@ -625,6 +639,12 @@ if state == STATECONST+1 then -- dont delete this
 				DD=3	
 			end
 		end	
+		if (RandomAttacks == 2) then
+		DragonFly = true
+		end
+		if (RandomAttacks == 3) then
+			
+		end
 	end
 end
 AddEventHandler("OnKeyboardInput", OnInput)

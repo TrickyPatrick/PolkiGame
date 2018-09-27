@@ -21,6 +21,6 @@
 -Thomas Decroix (Tricky Patrick aka.ThoThoBoss)
 --]]
 
-WINDOW_WIDTH = 1920 
+WINDOW_WIDTH = 1920
 WINDOW_HEIGHT = 1080
 WINDOW_NAME = "Polki Game"
